@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz.css">
+</head>
+<body>
+    <div class="container">
+        <div id="quiz" class="justify-center flex-column">
+            <div id="hud">
+                <div id="hud-item">
+                    <p id="progressoTexto" class="hud-prefixo">
+                        Questão
+                    </p>
+                    <div id="progressoBarra">
+                        <div id="progressoBarraCheia"></div>
+                    </div>
+                </div>
+                <div class="hud-item">
+                    <p class="hud-prefixo">
+                        Pontuação
+                    </p>
+                    <h1 class="hud-main-texto" id="score">
+                        0
+                    </h1>
+                </div>
+            </div>
+            <h1 id="questao">Qual é a resposta certa?</h1>
+            <div class="container-escolha">
+                <p class="letra-escolha">A</p>
+                <p class="texto-escolha" data-number="1">Escolha 1</p>
+            </div>
+            <div class="container-escolha">
+                <p class="letra-escolha">B</p>
+                <p class="texto-escolha" data-number="2">Escolha 2</p>
+            </div>
+            <div class="container-escolha">
+                <p class="letra-escolha">C</p>
+                <p class="texto-escolha" data-number="3">Escolha 3</p>
+            </div>
+            <div class="container-escolha">
+                <p class="letra-escolha">D</p>
+                <p class="texto-escolha" data-number="4">Escolha 4</p>
+            </div>
+        </div>
+    </div>
+    <script src="../js/quiz.js"></script>
+</body>
+</html>

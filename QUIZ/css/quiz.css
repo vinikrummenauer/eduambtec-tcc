@@ -1,0 +1,86 @@
+body{
+    color: #fff;
+}
+
+.container-escolha{
+    display: flex;
+    margin-bottom: 13px;
+    width: 100%;
+    border-radius: 4px;
+    background: rgb(18, 93, 255);
+    min-width: 1280px;
+}
+
+.container-escolha:hover{
+    cursor: pointer;
+    box-shadow: 0 2px 22px 0 rgb(18, 93, 255);
+    transform: scale(1.02);
+    transform: transform 100ms;
+}
+
+.letra-escolha{
+    padding: 32px 40px;
+    color: #fff;
+}
+
+.texto-escolha{
+    padding: 32px;
+    width: 100%;
+}
+
+.correta{
+    background: linear-gradient(32deg, rgba(11, 223, 36) 0%, rgb(41, 232, 111) 100%);
+}
+
+.incorreta{
+    background: linear-gradient(32deg, rgb(181, 36, 36) 0%, rgb(151, 46, 27) 100%);
+}
+
+
+
+
+
+
+
+
+
+
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
+
+.hud-prefixo{
+    text-align: center;
+    font-size: 32px;
+}
+
+.hud-main-texto{
+    text-align: center;
+}
+
+#progressoBarra{
+    width: 320px;
+    height: 48px;
+    border: 3px solid rgb(41, 232, 111);
+    margin-top: 32px;
+    margin-bottom: 50px; /*AAAAAAAAAAAAAAA*/
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+#progressoBarraCheia{
+    height: 100%;
+    background:rgb(41, 232, 111);
+    width: 0%;
+}
+
+
+
+
+
+@media screen and (max-width: 768px){
+    .container-escolha{
+        min-width: 640px;
+    }
+}
