@@ -113,7 +113,14 @@ class Pipe extends Obj{
 }
 
 class Coin extends Obj{
+    move(pipe){
+        this.x = pipe.x + 25;
+        this.y = pipe.y - 150;
 
+        if(this.x <= -50){
+            this.set_visible = true;
+        }
+    }
     
 }
 

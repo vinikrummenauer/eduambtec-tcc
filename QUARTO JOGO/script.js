@@ -29,32 +29,10 @@ var pipe1 = new Pipe(600, 500, 96, 358, "assets/images/pipe1.png");
 var pipe2 = new Pipe(600, -500, 96, 358, "assets/images/pipe2.png");
 var pipe3 = new Pipe(1032, 450, 96, 358, "assets/images/pipe2.png");
 var pipe4 = new Pipe(1642, 400, 96, 358, "assets/images/pipe3.png");
+var pipe5 = new Pipe(2242, 450, 96, 358, "assets/images/pipe4.png");
 var bird = new Bird(100, 400, 90, 80, "assets/images/bird0.png");
 
-var coin = {
-
-    time: 0,
-    spawnCoin(){
-        this.time += 0.5;
-
-        //posicao vai ir até 400y
-        posy = Math.random() * (50 - 400) + 10;
-        posy2 = Math.random() * (50 - 400) + 5;
-        posy3 = Math.random() * (50 - 400) + 20;
-
-        if(this.time >= 60){
-            this.time = 0;
-            groupArmazenado.push(new Coin(200, 400, 50, 50, "assets/images/lixo.png"));
-        }
-        console.log(this.time)
-    },
-
-    draw(){
-        groupArmazenado.forEach(c => {
-            c.draw();
-        });
-    },
-}
+var coin = new Coin(200, 400, 50, 50, "assets/images/lixo.png");
 
 var groupArmazenado = [];
 var armazenado = {
@@ -165,6 +143,7 @@ var game = {
         pipe1.draw();
         pipe3.draw();
         pipe4.draw();
+        pipe5.draw()
         infinityGround.draw();
         bird.draw();
         shoots.draw();
@@ -180,17 +159,19 @@ var game = {
         bird.animation(18, 3, "bird");
         bird.limits();
         
-        pipe1.move(5, -100, 1500, pipe2);
-        pipe3.move(5, -100, 1500, pipe2);
-        pipe4.move(5, -100, 1500, pipe2);
-        
-        coin.spawnCoin();
+        pipe1.move(5, -100, 1800, pipe2);
+        pipe3.move(5, -100, 1800, pipe2);
+        pipe4.move(5, -100, 1800, pipe2);
+        pipe5.move(5, -100, 1800, pipe2);
+
+        coin.move(pipe1)
 
         shoots.update();
 
         score_text.text = score;
 
         colision();
+        acertarPipa();
     }
 }
 
@@ -228,12 +209,21 @@ document.addEventListener("keydown", function(evento){
     }
 });
 
+
+function acertarPipa(){
+    groupShoot.forEach((shoot) => {
+        if (shoot.collide(pipe1)) {
+          groupShoot.splice(groupShoot.indexOf(shoot), 1);
+          score +=1
+        }
+      });
+    }
+
 function colision(){
     if(bird.collide(coin)){
         if(coin.set_visible){
         coin.set_visible = false;
         pts += 1;
-        score += 1;
         groupArmazenado.push(new Obj(0, 0, 50, 50, "assets/images/saco.png"));
         console.log(groupArmazenado);
         }
@@ -244,13 +234,14 @@ function colision(){
     }
     
     
-    if (bird.collide(pipe1) || bird.collide(pipe3) || bird.collide(pipe4)){
+    if (bird.collide(pipe1) || bird.collide(pipe3) || bird.collide(pipe4) || bird.collide(pipe5)){
         bird.x = 50
         bird.y = 400
         pipe1.y = -500
         pipe3.y = -500
         pipe4.y = -500
         pipe2.y = -500
+        pipe5.y = 500
         pts = 0;
         groupArmazenado = [];
         changeScene(gameover)
@@ -265,6 +256,7 @@ function colision(){
         pipe3.y = -500
         pipe4.y = -500
         pipe2.y = -500
+        pipe5.y = 500
         pts = 0
     }
 }
