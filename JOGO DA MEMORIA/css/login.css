@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background-color: #6c6c6c;
+    background: linear-gradient(0deg, rgb(7, 86, 47) 0%, rgb(27, 164, 43) 100%);
     justify-content: center;
 }
 
@@ -16,10 +16,11 @@
 }
 
 .login-header img{
-    width: 100px;
+    width: 120px;
 }
 
 .login-header h1{
+    margin-top: 2rem;
     color: #333;
     font-size: 30px;
 }
@@ -37,7 +38,7 @@
 }
 
 .login-button{
-    background-color: #ee665c;
+    background-color: #2db551;
     border-radius: 8px;
     color: #fff;
     padding: 12px;

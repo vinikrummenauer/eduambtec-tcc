@@ -12,7 +12,7 @@ let questoesDisponiveis = []
 
 let questoes = [
     {
-        questao: "Quanto é 2+27?",
+        questao: "Pergunta MAB",
         escolha1: "2",
         escolha2: "54",
         escolha3: "23",
