@@ -17,22 +17,36 @@ document.addEventListener("keyup", function(evento){
     if(tecla2==40){
         if(pts > 0){
             pts -= 1;
-            groupShoot.push(new Shoot(bird.x + bird.width / bird.x+30,bird.y+30,50,50, "assets/images/saco.png"));
-            groupArmazenado.splice(groupArmazenado.indexOf(armazenado), 1);
+            if(groupArmazenado.length === 2){
+                groupShoot.push(new Shoot(bird.x + bird.width / bird.x+30,bird.y+30,50,50, groupArmazenado[1].image));
+                groupArmazenado.splice(groupArmazenado.indexOf(armazenado[1]), 1);
+            }else{
+            groupShoot.push(new Shoot(bird.x + bird.width / bird.x+30,bird.y+30,50,50, groupArmazenado[0].image));
+            groupArmazenado.splice(groupArmazenado.indexOf(armazenado[0]), 1);
+            }
+            console.log(contador)
         }
     }
 });
 
 var pts = 0;
+var pts2 = 0;
 
-var pipe1 = new Pipe(600, 500, 96, 358, "assets/images/pipe1.png");
+var contador = 0;
+function atualizaContador(){
+    if(contador > 2){
+        contador = 1;
+    }
+}
+console.log(pipe1)
+var pipe1 = [new Pipe(600, 500, 96, 358, "assets/images/pipe1.png")];
 var pipe2 = new Pipe(600, -500, 96, 358, "assets/images/pipe2.png");
 var pipe3 = new Pipe(1032, 450, 96, 358, "assets/images/pipe2.png");
 var pipe4 = new Pipe(1642, 400, 96, 358, "assets/images/pipe3.png");
 var pipe5 = new Pipe(2242, 450, 96, 358, "assets/images/pipe4.png");
 var bird = new Bird(100, 400, 90, 80, "assets/images/bird0.png");
 
-var coin = new Coin(200, 400, 50, 50, "assets/images/lixo.png");
+var coin = new Coin(200, 400, 50, 50, "assets/images/saco.png");
 
 var groupArmazenado = [];
 var armazenado = {
@@ -140,7 +154,7 @@ var game = {
     draw(){
         infinityBg.draw();
         armazenado.draw();
-        pipe1.draw();
+        pipe1[0].draw();
         pipe3.draw();
         pipe4.draw();
         pipe5.draw()
@@ -159,14 +173,15 @@ var game = {
         bird.animation(18, 3, "bird");
         bird.limits();
         
-        pipe1.move(5, -100, 1800, pipe2);
+        pipe1[0].move(5, -100, 1800, pipe2);
         pipe3.move(5, -100, 1800, pipe2);
         pipe4.move(5, -100, 1800, pipe2);
         pipe5.move(5, -100, 1800, pipe2);
 
-        coin.move(pipe1)
+        coin.move(pipe1[0])
 
         shoots.update();
+        atualizaContador();
 
         score_text.text = score;
 
@@ -197,6 +212,7 @@ var gameover = {
         bullets = 200;
         groupMeteors = [];
         groupShoot = [];
+        contador = 0;
     }
 
 }
@@ -212,29 +228,33 @@ document.addEventListener("keydown", function(evento){
 
 function acertarPipa(){
     groupShoot.forEach((shoot) => {
-        if (shoot.collide(pipe1)) {
-          groupShoot.splice(groupShoot.indexOf(shoot), 1);
-          score +=1
-        }
+        pipe1.forEach((pipe1) => {
+          if (shoot.collide(pipe1)){
+            if(shoot.image === "assets/images/saco1.png"){
+            groupShoot.splice(groupShoot.indexOf(shoot), 1);
+            }
+          }
+        });
       });
-    }
+}
 
 function colision(){
     if(bird.collide(coin)){
         if(coin.set_visible){
         coin.set_visible = false;
         pts += 1;
-        groupArmazenado.push(new Obj(0, 0, 50, 50, "assets/images/saco.png"));
+        contador += 1;
+        groupArmazenado.push(new Obj(0, 0, 50, 50, `assets/images/saco${contador}.png`));
         console.log(groupArmazenado);
         }
         if(groupArmazenado.length === 2){
         groupArmazenado.splice(groupArmazenado.indexOf(armazenado), 1);
-        groupArmazenado.push(new Obj(50, 0, 50, 50, "assets/images/saco.png"));
+        groupArmazenado.push(new Obj(50, 0, 50, 50, `assets/images/saco${contador}.png`));
         }
     }
     
     
-    if (bird.collide(pipe1) || bird.collide(pipe3) || bird.collide(pipe4) || bird.collide(pipe5)){
+    if (bird.collide(pipe1[0]) || bird.collide(pipe3) || bird.collide(pipe4) || bird.collide(pipe5)){
         bird.x = 50
         bird.y = 400
         pipe1.y = -500
