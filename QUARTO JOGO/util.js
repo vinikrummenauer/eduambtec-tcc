@@ -126,7 +126,7 @@ class Coin extends Obj{
 
 class Shoot extends Obj{
     move(){
-        this.y += 10;
+        this.y += 13;
         this.x -= 4;
         this.x += 1;
     }
