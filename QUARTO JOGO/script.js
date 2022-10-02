@@ -57,6 +57,15 @@ var armazenado = {
     }
 }
 
+var groupErrou = [];
+var errou = {
+    draw() {
+        groupErrou.forEach(errou => {
+            errou.draw()
+        })
+    }
+}
+
 var score = 0;
 var score_text = new Text();
 
@@ -153,6 +162,7 @@ var game = {
 
     draw() {
         infinityBg.draw();
+        errou.draw();
         armazenado.draw();
         pipe1[0].draw();
         pipe3[0].draw();
@@ -225,6 +235,7 @@ var gameover = {
         pipe5[0].y = -500
         pts = 0;
         groupArmazenado = [];
+        groupErrou = [];
     }
 
 }
@@ -245,8 +256,17 @@ function acertarCano() {
                 if (shoot.image === "assets/images/saco4.png") {
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
                     score += 1;
-                } else {
-                    changeScene(gameover);
+                }
+                if(shoot.image !== "assets/images/saco4.png") {
+                    groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
+                    groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        if(groupErrou.length === 2){
+                        groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
+                        groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        }
+                        if(groupErrou.length === 4){
+                            changeScene(gameover);
+                        }
                 }
             }
         });
@@ -260,8 +280,17 @@ function acertarCano2() {
                 if (shoot.image === "assets/images/saco3.png") {
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
                     score += 1;
-                } else {
-                    changeScene(gameover);
+                } 
+                if(shoot.image !== "assets/images/saco3.png") {
+                    groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
+                    groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        if(groupErrou.length === 2){
+                        groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
+                        groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        }
+                        if(groupErrou.length === 4){
+                            changeScene(gameover);
+                        }
                 }
             }
         });
@@ -275,8 +304,17 @@ function acertarCano3() {
                 if (shoot.image === "assets/images/saco2.png") {
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
                     score += 1;
-                } else {
-                    changeScene(gameover);
+                }
+                if(shoot.image !== "assets/images/saco2.png") {
+                    groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
+                    groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        if(groupErrou.length === 2){
+                        groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
+                        groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        }
+                        if(groupErrou.length === 4){
+                            changeScene(gameover);
+                        }
                 }
             }
         });
@@ -290,6 +328,17 @@ function acertarCano4() {
                 if (shoot.image === "assets/images/saco1.png") {
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
                     score += 1;
+                }
+                if(shoot.image !== "assets/images/saco1.png") {
+                    groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
+                    groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        if(groupErrou.length === 2){
+                        groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
+                        groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                        }
+                        if(groupErrou.length === 4){
+                            changeScene(gameover);
+                        }
                 }
             }
         });
@@ -313,29 +362,11 @@ function colision() {
 
 
     if (bird.collide(pipe1[0]) || bird.collide(pipe3[0]) || bird.collide(pipe4[0]) || bird.collide(pipe5[0])) {
-        bird.x = 140
-        bird.y = 400
-        pipe1[0].y = -500
-        pipe3[0].y = -500
-        pipe4[0].y = -500
-        pipe2.y = -500
-        pipe5[0].y = -500
-        pts = 0;
-        groupArmazenado = [];
         changeScene(gameover)
     }
 
     if (groupArmazenado.length === 3) {
-        groupArmazenado = [];
         changeScene(gameover);
-        bird.x = 140
-        bird.y = 400
-        pipe1[0].y = -500
-        pipe3[0].y = -500
-        pipe4[0].y = -500
-        pipe2.y = -500
-        pipe5[0].y = -500
-        pts = 0
     }
 }
 

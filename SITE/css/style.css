@@ -3,7 +3,7 @@
 }
 
 body{
-    background: linear-gradient(#212b46, #19b658c3);
+    background: linear-gradient(#ffffff, #fff);
 }
 
 .bg-primary-color{
@@ -100,7 +100,8 @@ body{
 /* SLIDER */
 
 main{
-    background: url("../img/fundo.png");
+    background: url("../img/green.jpg");
+    background-size: cover;
     margin-bottom: -50px;
 }
 
