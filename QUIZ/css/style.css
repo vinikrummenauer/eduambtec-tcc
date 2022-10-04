@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root{
+    background-image: url("../assets/quadro.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 62.5%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h1{
+    font-size: 30px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+h2{
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.btn{
+    font-size: 38px;
+    padding: 32px 0;
+    width: 480px;
+    text-align: center;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: rgb(26, 26, 26);
+    background: linear-gradient(90deg, rgb(10, 92, 255) 0%, rgb(0, 102, 255) 100%);
+    border-radius: 4px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    box-shadow: 0 7px 22px 0 rgb(8, 102, 255, 0.6);
+    transition: transform 150ms;
+    transform: scale(1.03);
+}
+
+.btn[disabled]:hover{
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+#pontuacoes-btn{
+    background: linear-gradient(90deg, rgb(153, 255, 10) 0%,rgb(0, 255, 51) 100%);
+}
+
+#pontuacoes-btn:hover{
+    box-shadow: 0 7px 22px 0 rgb(0, 0, 0);
+}
+
+/* pag final */
+.final-form-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 390px;
+}
+
+input{
+    margin-bottom: 16px;
+    width: 300px;
+    padding: 24px;
+    font-size: 30px;
+    border: none;
+    border-radius: 0 1px 22px 0 rgb(87, 171, 210);
+}
+
+input::placeholder{
+    color: #aaa;
+}
+
+#nome{
+    margin: 45px;
+    width: 100%;
+    outline: none;
+}
+
+#texto-final{
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+}
+
+#salvarScoreBtn{
+    border: none;
+}

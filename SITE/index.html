@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDUAMBTEC</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <!-- Fontes para usar -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300&display=swap" rel="stylesheet">
+    <!-- CSS Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- JavaScript Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"></script>
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script>
+        /* ScrollReveal({ reset: true }); */
+      </script>
+
+</head>
+<body>
+    <!-- NAVBAR-->
+    <nav class="navbar navbar-expand-lg fixed-top bg-primary-color" id="navbar">
+    <div class="container py-3">
+        <a href="index.html" class="navbar-brand">
+            <img src="img/logo.png" alt="EDUAMBTEC">
+            <span data-text="EDUAMBTEC">EDUAMBTEC</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#navbar-items"
+        aria-controls="navbar-items"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="bi bi-list"></i>    
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-items">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Jogos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Quem somos?</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">Informações</a>
+              </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!--SLIDERS-->
+    <main>
+    <div class="container" id="slider-container">
+      <div id="slider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" class="active" data-bs-target="#slider" data-bs-slide-to="0" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#slider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#slider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/banner-1.png" class="d-block w-100" alt="Ambiente 1" />
+            <div class="carousel-caption">
+              <a href="#featured-container" class="btn btn-dark" style="--clr:#1e9bff">Jogue agora<i></i></a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner-2.png" class="d-block w-100" alt="Ambiente 2" />
+            <div class="carousel-caption">
+              <a href="#featured-container" class="btn btn-dark" style="--clr:#1e9bff">Jogue agora<i></i></a>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner-3.png" class="d-block w-100" alt="Ambiente 3" />
+            <div class="carousel-caption">
+              <a href="#featured-container" class="btn btn-dark" style="--clr:#1e9bff">Fazer o quiz<i></i></a>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#slider" data-bs-slide="prev">
+          <i class="bi bi-chevron-compact-left"></i>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#slider" data-bs-slide="next">
+          <i class="bi bi-chevron-compact-right"></i>
+          <span class="visually-hidden">Proximo</span>
+        </button>
+        </div>
+        <!-- MINI BANNERS -->
+        <div class="col-12 col-md-10 offset-md-1" id="mini-banners">
+          <div class="row">
+            <div class="col-12 col-md-4">
+              <div class="card text-center">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="card-body">
+                  <h5 class="card-title primary-color">TECNOLOGIA + MEIO AMBIENTE?</h5>
+                  <p class="card-text secondary-color">A tecnologia é uma forma de inovação que é aplicada em 
+                    coisas que já existem com o intuito de que as mesmas sejam melhoradas.
+                  </p>
+                  <a href="#info-container" class="btn btn-dark">Saber mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card text-center">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="card-body">
+                  <h5 class="card-title primary-color">MEIO AMBIENTE + JOGOS?</h5>
+                  <p class="card-text secondary-color">Jogue agora algum dos nossos jogos e tenha a certeza que fará o bem para o mundo e principalmente para os seres humanos.
+                    O objetivo é se divertir aprendendo.
+                  </p>
+                  <a href="#featured-container" class="btn btn-dark">Saber mais</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card text-center">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="card-body">
+                  <h5 class="card-title primary-color">QUIZ</h5>
+                  <p class="card-text secondary-color">Já pensou se você tem um conhecimento básico sobre o meio ambiente e a tecnologia atualmente? Teste esse conhecimento por meio deste quiz!
+                  </p>
+                  <a href="#featured-container" class="btn btn-dark">Saber mais</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    </main>
+    <!-- DESTAQUES -->
+    <div id="teste">
+      <div class="bolas">
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:24;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:25;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:26;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:28;"></span>
+        <span style="--i:11;"></span>
+        <span style="--i:12;"></span>
+        <span style="--i:24;"></span>
+        <span style="--i:10;"></span>
+        <span style="--i:14;"></span>
+        <span style="--i:23;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:16;"></span>
+        <span style="--i:19;"></span>
+        <span style="--i:20;"></span>
+        <span style="--i:22;"></span>
+        <span style="--i:25;"></span>
+        <span style="--i:18;"></span>
+        <span style="--i:21;"></span>
+        <span style="--i:15;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:26;"></span>
+        <span style="--i:17;"></span>
+        <span style="--i:13;"></span>
+        <span style="--i:28;"></span>
+        <span style="--i:32;"></span>
+        <span style="--i:37;"></span>
+        <span style="--i:40;"></span>
+        <span style="--i:29;"></span>
+        <span style="--i:34;"></span>
+        <span style="--i:44;"></span>
+        <span style="--i:46;"></span>
+        <span style="--i:42;"></span>
+      </div>
+    <div class="container" id="featured-container">
+      <div class="col-12">
+        <h2 class="title primary-color" id="textoneon">Jogos</h2>
+        <p class="subtitle secondary-color"> Dois jogos e um quiz para se divertir e aprender! </p>
+      </div>
+      <div class="col-12" id="featured-images">
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <img src="img/destaque-1.png" alt="Destaque 1" class="img-fluid">
+            <div class="banner-content">
+              <p class="secondary-color"></p>
+              <a href="../QUINTO JOGO/index.html" class="secondary-color" id="jogueagora">JOGUE AGORA</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <img src="img/destaque-2.png" alt="Destaque 2" class="img-fluid">
+            <div class="banner-content">
+              <p class="secondary-color"></p>
+              <a href="../QUARTO JOGO/index.html" class="secondary-color" id="jogueagora">JOGUE AGORA</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <img src="img/destaque-3.png" alt="Destaque 3" class="img-fluid">
+            <div class="banner-content">
+              <p class="secondary-color"></p>
+              <a href="#" class="secondary-color" id="jogueagora">JOGUE AGORA</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- INFO -->
+    <div class="container" id="info-container">
+      <div class="col-12">
+        <h2 class="title primary-color">Informações importantes</h2>
+        <p class="subtitle secondary-color"> Saiba mais sobre meio ambiente </p>
+      </div>
+      <div class="col-12">
+        <div class="row">
+          <div class="col-12 col-md-12 bg-secondary-color" id="info-content">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="title primary-color">Reservado para informações</h2>
+                <p class="subtitle secondary-color"> Talvez será aplicada uma API futura que esteja relacionada com dados sobre o meio ambiente ou algum assunto que o EDUAMBTEC esteja envolvido. </p>
+              </div>
+
+              <div class="input-group">
+                <input type="text" class="form-control" type="number" name="lat" placeholder="Latitude" id="latitude" step="0.0001">
+                <input type="text" class="form-control" type="number" name="lon" placeholder="Longitude" id="longitude" step="0.0001">
+                <div class="input-group-prepend">
+                  <button type="button" class="btn btn-success">Confirmar</button>
+                </div>
+              </div>
+            
+              <div class="col-12" id="info-numbers">
+                <div class="row">
+                  <div class="col-4">
+                    <h3 class="primary-color" id="nivel">...</h3>
+                    <p class="secondary-color">Nível</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color" id="qualidade">...</h3>
+                    <p class="secondary-color">Qualidade</p>
+                  </div>
+                  <div class="col-4">
+                    <h3 class="primary-color">444</h3>
+                    <p class="secondary-color">Dados</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER (RODAPÉ) -->
+    <footer class="container-fluid bg-dark-color" id="footer">
+      <div class="container">
+        <div class="row">
+          <!-- PARTE DE CIMA DO FOOTER -->
+          <div class="col-12" id="footer-top">
+            <div class="row justify-content-between">
+              <div class="col-4"><h2>EDUAMBTEC</h2></div>
+              <div class="col-4" id="social-icons">
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-youtube"></i>
+                <i class="bi bi-facebook"></i>
+              </div>
+            </div>
+          </div>
+          <!-- DETALHES DO FOOTER -->
+          <div class="col-12" id="footer-details">
+            <div class="row">
+              <div class="col-12 col-md-4" id="news-container">
+                <h4>Deixe sua avaliação:</h4>
+                <p class="secondary-color">Criticas construtivas são bem vindas!</p>
+                <form>
+                  <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="O que achou do site?"></div>
+                  <button class="btn btn-dark" type="submit">Enviar</button>
+                </form>
+              </div>
+              <div class="col-12 col-md-4" id="contact-container">
+                <h4>Formas de contato</h4>
+                <p class="secondary-color">(51) 99563-3760</p>
+                <p class="secondary-color">mynezius@gmail.com</p>
+              </div>
+              <div class="col-12 col-md-4" id="links-container">
+                <div class="row">
+                  <h4>Parte reservada para links:</h4>
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6">
+                    <ul class="list-unstyled">
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                      <li><a href="#" class="secondary-color">Link</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- PARTE DE BAIXO DO FOOTER -->
+            <div class="col-12" id="footer-bottom">
+              <div class="row justify-content-between">
+                <div class="col-12 col-md-3">
+                  <p class="secondary-color">EDUAMBTEC &copy; 2022</p>
+                </div>
+                <div class="col-12 col-md-3">
+                  <p class="secondary-color">Agracedemos a todos pela oportunidade!</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="js/script.js"></script>
+      <!--<div class="col-12 input-group" id="info-input">
+                <div class="row">
+                  <div class="col-4">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <a href="#" class="btn btn-dark">Saber mais</a>
+                  </div>
+                </div>
+              </div>!-->
+  </body>
+  </html>
+  
