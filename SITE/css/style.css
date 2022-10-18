@@ -441,6 +441,14 @@ main{
     margin-bottom: 2em;
 }
 
+#princ{
+    color: #77ffc0;
+}
+
+#sub{
+    color: #58b88b;
+}
+
 .title{
     margin-top: 50px;
     font-size: 1.75em;
@@ -532,6 +540,11 @@ main{
 
 #info-numbers h3{
     font-size: 3em;
+}
+
+#imgReciclagem img{
+    align-items: center;
+    justify-content: center;
 }
 
 @media(min-width: 768px){

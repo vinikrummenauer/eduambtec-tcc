@@ -2,7 +2,7 @@ main{
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-image: url('../images/fundo.jpeg');
+    background-image: url('../images/green.jpg');
     background-size: cover;
     min-height: 100vh;
     align-items: center;
@@ -59,7 +59,7 @@ header{
 }
 
 .back{
-    background-image: url('../images/fofodemais.png');
+    background-image: url('../images/RECICLE.png');
     backface-visibility: hidden;
 }
 
