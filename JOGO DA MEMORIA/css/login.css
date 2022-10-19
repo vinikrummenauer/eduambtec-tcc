@@ -3,7 +3,8 @@
     flex-direction: column;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(0deg, rgb(7, 86, 47) 0%, rgb(27, 164, 43) 100%);
+    background-image: url('../images/green.jpg');
+    background-size: cover;
     justify-content: center;
 }
 

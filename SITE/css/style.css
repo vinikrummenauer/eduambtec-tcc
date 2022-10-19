@@ -102,7 +102,7 @@ body{
 main{
     background: url("../img/green.jpg");
     background-size: cover;
-    margin-bottom: -50px;
+    margin-bottom: -65px;
 }
 
 .carousel-item.active img{
@@ -419,10 +419,10 @@ main{
 }
 
 .bolas span:nth-child(even){
-    background: #4fc3dc;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
+    background: #4fdcb2;
+    box-shadow: 0 0 0 10px #04cc7c44,
+    0 0 50px #19b65d,
+    0 0 100px #15a54f;
 }
 
 @keyframes animate
@@ -546,6 +546,19 @@ main{
     align-items: center;
     justify-content: center;
 }
+
+#nivelDoAr{
+    padding-left: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+#qualidadeDoAr{
+    padding-left: 200px;
+    align-items: center;
+    justify-content: center;
+}
+
 
 @media(min-width: 768px){
     #info-content{

@@ -18,7 +18,7 @@ header{
     font-size: 22px;
     width: 100%;
     max-width: 800px;
-    padding: 30px;
+    padding: 15px;
     margin: 0 0 30px;
     border-radius: 5px;
 }
@@ -30,7 +30,7 @@ header{
     gap: 15px;
     width: 100%;
     max-width: 800px;
-    margin: 0 auto
+    margin: 0 auto;
 }
 
 .card{
@@ -71,3 +71,4 @@ header{
     filter: saturate(0)
     opacity(0.5)
 }
+
