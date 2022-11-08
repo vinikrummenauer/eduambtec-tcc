@@ -19,11 +19,13 @@ body{
 }
 
 .letra-escolha{
+    font-size: 20px;
     padding: 32px 40px;
     color: #fff;
 }
 
 .texto-escolha{
+    font-size: 14px;
     padding: 32px;
     width: 100%;
 }

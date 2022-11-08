@@ -78,7 +78,7 @@ let questoes = [
 ]
 
 const SCORE_PONTOS = 100
-const QUESTOES_MAX = 4
+const QUESTOES_MAX = 8
 
 comecarQuiz = () => {
     contadorQuestao = 0
