@@ -84,7 +84,7 @@ class Bird extends Obj{
     grav = 1;
 
     move(){
-        if(this.vel <10){
+        if(this.vel < 10){
             this.vel += this.grav;
         }
         this.y += this.vel;
