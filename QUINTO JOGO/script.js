@@ -18,9 +18,10 @@ function changeScene (scene){
     currentScene = scene;
 }
 
-var bullets = 200;
-
+var bullets = 10;
+var pts2 = 0;
 var pts = 0;
+var diffText = "fácil";
 
 var groupShoot = [];
 var shoots = {
@@ -31,9 +32,9 @@ var shoots = {
     },
 
     update(){
+        
         groupShoot.forEach(shoot => {
             shoot.move();
-
             if(shoot.y <= -100){
                 groupShoot.splice(shoot[0], 1)
             }
@@ -46,7 +47,7 @@ var meteors = {
 
     time: 0,
     spawnMeteors(){
-        this.time += 0.5;
+        this.time += 0.4;
 
         size = Math.random() * (40 - 30) + 50;
         posx = Math.random() * (450 - 10) + 10;
@@ -56,11 +57,62 @@ var meteors = {
         posx3 = Math.random() * (450 - 10) + 20;
 
         if(this.time >= 60){
-            this.time = 0;
             groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
             groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
             groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
         }
+
+        if (pts >= 15 && pts < 30){
+            if(this.time >= 30){
+                this.time = 0;
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+            }
+        }
+
+        if (pts >= 30 && pts < 60){
+            if(this.time >= 40){
+                this.time = 0;
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+            }
+        }
+
+        if (pts >= 60 && pts < 80){
+            if(this.time >= 45){
+                this.time = 0;
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+            }
+        }
+
+
+        if (pts >= 100){
+            if(this.time >= 45){
+                this.time = 0;
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx, -100, size, size, "assets/lixo.png"));
+                groupMeteors.push(new Meteors(posx2, -100, size2, size2, "assets/latinha.png"));
+                groupMeteors.push(new Meteors(posx3, -100, size3, size3, "assets/copo.png"));
+            }
+        }
+
+        if(this.time >= 60){
+        this.time = 0;
+        }
+        
     },
 
     destroyMeteors(){
@@ -69,7 +121,7 @@ var meteors = {
             if (shoot.collide(meteors)) {
               groupShoot.splice(groupShoot.indexOf(shoot), 1);
               groupMeteors.splice(groupMeteors.indexOf(meteors), 1);
-              bullets + 10;
+              bullets += 2;
               pts += 1;
             }
           });
@@ -88,8 +140,11 @@ var meteors = {
         groupMeteors.forEach(m => {
             m.move();
             if(m.y > 750){
+                pts2 += 1;
                 groupMeteors.splice(groupMeteors.indexOf(m), 1);
+                if(pts2 === 3){
                 changeScene(gameover);
+                }
             }
         });
     },
@@ -141,8 +196,6 @@ var infinityBg2 = {
 
 var menu = {
     clique: new Obj(40, 100, 530, 700, "assets/clique.png"),
-    /*title: new Text("SALVE O MUNDO"),
-    label: new Text("Clique para jogar"),*/
     ship: new Obj(270, 680, 60, 50, "assets/nave.png"),
     terra: new Obj(-50, 700, 690, 690, "assets/terra.png"),
 
@@ -152,8 +205,6 @@ var menu = {
     draw(){
         infinityBg.draw();
         this.clique.draw();
-        /*this.title.draw_text(50, "OCR A", 65, 330, 'white');
-        this.label.draw_text(20, "OCR A", 160, 400, "white");*/
         this.terra.draw();
         this.ship.draw();
     },
@@ -164,9 +215,15 @@ var menu = {
 
 var game = {
 
-    score: new Text("0"),
+    score: new Text(`Pontos: ${pts}`),
+    diff: new Text("Nível:"),
+    text: new Text(""),
     ship: new Obj(270, 680, 60, 50, "assets/nave.png"),
     terra: new Obj(-50, 700, 690, 690, "assets/terra.png"),
+    bala : new Obj(-10, 760, 60, 50, "assets/Bala.png"),
+    coracao3: new Obj(15, -50, 175, 175, "assets/3coracao.png"),
+    coracao2: new Obj(15, -50, 175, 175, "assets/2coracao.png"),
+    coracao1: new Obj(15, -50, 175, 175, "assets/1coracao.png"),
 
     click(){
         if(bullets > 0){
@@ -182,17 +239,40 @@ var game = {
 
     draw(){
         infinityBg.draw();
-        this.score.draw_text(30, "OCR A", 40, 40, "white");
+        this.score.draw_text(25, "OCR A", 40, 100, "white");
+        this.diff.draw_text(25, "OCR A", 350, 40, "white");
+        this.text.draw_text(25, "OCR A", 40, 800, "white");
         this.terra.draw();
         this.ship.draw();
+        this.bala.draw()
         shoots.draw();
         meteors.draw();
+        if(pts2 === 0){
+            this.coracao3.draw();
+        } else if(pts2 === 1){
+            this.coracao2.draw();
+        } else if(pts2 === 2){
+            this.coracao1.draw();
+        }
+        
+
     },
     update(){
         infinityBg.moveBg();
         shoots.update();
         meteors.update();
-        this.score.update_text(pts);
+        this.score.update_text(`Pontos: ${pts}`);
+        this.text.update_text(`${bullets}`);
+        this.diff.update_text("Nível: "+ diffText);
+        if(pts === 0){
+            diffText = "fácil";
+        }
+        else if(pts === 15){
+            diffText = "médio";
+        }
+        else if(pts === 30){
+            diffText = "difícil";
+        }
     },
 }
 
@@ -200,6 +280,8 @@ var gameover = {
     score: new Text("0"),
     clique2: new Obj(40, 100, 530, 700, "assets/clique2.png"),
     terra: new Obj(-50, 700, 690, 690, "assets/terra2.png"),
+    
+    
 
 
     draw(){
@@ -215,8 +297,10 @@ var gameover = {
     },
 
     cleanScene(){
+        pts2 = 0;
         pts = 0;
-        bullets = 200;
+        diffText = "fácil";
+        bullets = 10;
         groupMeteors = [];
         groupShoot = [];
     },

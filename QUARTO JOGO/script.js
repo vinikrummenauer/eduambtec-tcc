@@ -31,6 +31,7 @@ document.addEventListener("keyup", function (evento) {
 
 var pts = 0;
 var pts2 = 0;
+var pts3 = 0;
 
 var contador = 0;
 function atualizaContador() {
@@ -136,8 +137,7 @@ var infinityGround = {
 
 
 var menu = {
-    /*title: new Text("VOA VOA"),
-    label: new Text("Clique para jogar"),*/
+    //ter o hover aqui 
     clique1: new Obj(340, 180, 500, 500, "assets/images/clique1.png"),
 
     click() {
@@ -148,8 +148,6 @@ var menu = {
         infinityBg.draw();
         bird.draw();
         this.clique1.draw()
-        /*this.title.draw_text(60, "Arial", 555, 300, "white");
-        this.label.draw_text(20, "Arial", 620, 400, "white");*/
     },
 
     update() {
@@ -160,9 +158,12 @@ var menu = {
 
 var game = {
 
+    coracao3: new Obj(950, -50, 200, 200, "assets/images/3coracao.png"),
+    coracao2: new Obj(950, -50, 200, 200, "assets/images/2coracao.png"),
+    coracao1: new Obj(950, -50, 200, 200, "assets/images/1coracao.png"),
+
     draw() {
         infinityBg.draw();
-        errou.draw();
         armazenado.draw();
         pipe1[0].draw();
         pipe3[0].draw();
@@ -173,6 +174,14 @@ var game = {
         shoots.draw();
         coin.draw();
         score_text.draw_text(60, "OCR A", 540, 60);
+
+        if(pts3 === 0){
+            this.coracao3.draw();
+        } else if(pts3 === 1){
+            this.coracao2.draw();
+        } else if(pts3 === 2){
+            this.coracao1.draw();
+        }
     },
 
     update() {
@@ -221,6 +230,7 @@ var gameover = {
 
     click() {
         changeScene(menu);
+        pts3 = 0;
         score = 0;
         bullets = 200;
         groupMeteors = [];
@@ -260,6 +270,7 @@ function acertarCano() {
                 if(shoot.image !== "assets/images/saco4.png") {
                     groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                    pts3 += 1;
                         if(groupErrou.length === 2){
                         groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
                         groupShoot.splice(groupShoot.indexOf(shoot), 1);
@@ -284,6 +295,7 @@ function acertarCano2() {
                 if(shoot.image !== "assets/images/saco3.png") {
                     groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                    pts3 += 1;
                         if(groupErrou.length === 2){
                         groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
                         groupShoot.splice(groupShoot.indexOf(shoot), 1);
@@ -308,6 +320,7 @@ function acertarCano3() {
                 if(shoot.image !== "assets/images/saco2.png") {
                     groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                    pts3 += 1;
                         if(groupErrou.length === 2){
                         groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
                         groupShoot.splice(groupShoot.indexOf(shoot), 1);
@@ -332,6 +345,7 @@ function acertarCano4() {
                 if(shoot.image !== "assets/images/saco1.png") {
                     groupErrou.push(new Obj(1030, 20, 50, 60, "assets/images/errou.png"));
                     groupShoot.splice(groupShoot.indexOf(shoot), 1);
+                    pts3 += 1;
                         if(groupErrou.length === 2){
                         groupErrou.push(new Obj(1100, 20, 50, 60, "assets/images/errou.png"));
                         groupShoot.splice(groupShoot.indexOf(shoot), 1);
