@@ -15,6 +15,35 @@ const personagens = [
     'sorrisinho',
 ]
 
+function mostrarPopup() {
+    var popup = document.getElementById("meuPopup");
+    var popupContent = document.querySelector("#meuPopup .popup");
+    popup.style.display = "flex";
+    popupContent.style.display = "block";
+  
+    var popuph2 = document.getElementById("popuph2");
+    popuph2.innerHTML = `Parabéns, ${spanPlayer.innerHTML}!`;
+    var popupContent2 = document.getElementById("popupContent");
+    popupContent2.innerHTML = `Seu tempo para ganhar foi de: ${timer.innerHTML} segundos`;
+  }
+  
+  function fecharPopup() {
+    var popup = document.getElementById("meuPopup");
+    var popupContent = document.querySelector("#meuPopup .popup");
+    popup.style.display = "none";
+    popupContent.style.display = "none";
+  }
+
+  function reiniciarJogo() {
+    window.location.reload()
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var popup = document.getElementById("meuPopup");
+  popup.style.display = "none";
+});
+
+
 const createElement = (tag, className) => {
     const element = document.createElement(tag)
     element.className = className
@@ -28,7 +57,7 @@ const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card')
     if(disabledCards.length === 20){
         clearInterval(this.loop)
-        alert(`Parabéns, ${spanPlayer.innerHTML}, seu tempo para ganhar foi: ${timer.innerHTML}`)
+        mostrarPopup()
     }
 }
 
